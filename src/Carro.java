@@ -1,10 +1,41 @@
 public class Carro extends Automovel {
     private int portas;
 
-    public Carro(String marca, String modelo, int ano, double preco, boolean novo, 
-                int quilometragem, String placa, String combustivel, String cor,
-                String cambio, int peso, int portas) {
-        super(marca, modelo, ano, preco, novo, quilometragem, placa, combustivel, cor, cambio, peso);
+    public Carro(String marca, String modelo, int ano, double preco, int quilometragem, 
+                String placa, String combustivel, String cor, String cambio,
+                int peso, int portas) {
+        super(marca, modelo, ano, preco, quilometragem, placa, combustivel, cor, cambio, peso);
         this.portas = portas;
+    }
+
+    public int getPortas() {
+        return portas;
+    }
+
+    public void imprimirInfo() {
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        System.out.println(getMarca() + " " + getModelo() + "\n" + //
+                        "ano: " + getAno() + "\n" + //
+                        "preço: " + getPreco() + " R$ ->" + isNew(getNovo()) + "\n" + //
+                        "quilometragem: " + getQuilometragem() + " Km" + "\n" + //
+                        "placa: " + getPlaca() + "\n" + //
+                        "combustível: " + getCombustivel() + "\n" + //
+                        "cor: " + getCor() + "\n" + //
+                        "peso: " + getPeso() + " Kg" + "\n" + //
+                        "número de portas: " + this.getPortas());
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        System.out.println();
+    }
+
+    public void comprarCarro(Vendedor vendedor, Cliente cliente) {
+        if (cliente.getSaldo() < getPreco()) {
+            System.out.println("Saldo insuficiente para comprar o carro: " + getMarca() + " -> " + getModelo());
+            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+            return;
+        }
+        System.out.println(getMarca() + " -> " + getModelo() + " comprado com sucesso!");
+        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        cliente.diminuirSaldo(getPreco());
+        vendedor.adicionarDinheiroFaturado(getPreco());
     }
 }
