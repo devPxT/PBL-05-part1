@@ -30,7 +30,7 @@ public class Main {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         System.out.println("Adicionando cliente com cpf invalido -> ABC");
         try {
-            Cliente clienteInvalido = new Cliente("Cliente Inválido", 30, "12345678900", 0.00);
+            Cliente clienteInvalido = new Cliente("Cliente Inválido", 30, "12345678900", 0.00, "12345678", 123);
             clienteInvalido.imprimirInfo();
         } catch (IllegalArgumentException e) {
             System.out.println("Impossível adicionar o cliente inválido: " + e.getMessage());
@@ -38,7 +38,7 @@ public class Main {
             System.out.println();
         }
     
-        Cliente clienteValido = new Cliente("Cliente Válido", 35, "31598300040", 30000.00);
+        Cliente clienteValido = new Cliente("Cliente Válido", 35, "31598300040", 30000.00, "12345678", 123);
         clienteValido.imprimirInfo();
     
         Vendedor vendedor = new Vendedor("Vendedor", 25, "39096031067", 0, "12345678901234");
@@ -57,5 +57,7 @@ public class Main {
 
         System.out.println("Tentando comprar moto");
         CBR.comprarMoto(vendedor, clienteValido);
+
+        clienteValido.imprimirEndereco();
     }
 }
