@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import static java.lang.Integer.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -81,161 +82,239 @@ public class Main {
     }
 
     public static void showMenu() {
-        Scanner scanner = new Scanner(System.in);
-        int opcao = -1;
+        // Scanner scanner = new Scanner(System.in);
+        // int opcao = -1;
 
-        while (opcao != 0) {
-            System.out.println("---------- Bem Vindo ---------");
+        // while (opcao != 0) {
+        //     System.out.println("---------- Bem Vindo ---------");
+        //     System.out.println("1. Cadastrar Usuário");
+        //     System.out.println("2. Listar Usuários");
+        //     System.out.println("3. Cadastrar Automovel");
+        //     System.out.println("4. Listar Automoveis");
+        //     System.out.println("5. Gerenciar Saldo");
+        //     System.out.println("6. Comprar Automovel");
+        //     System.out.println("0. Sair");
+        //     System.out.print("Digite a opção: ");
+
+        //     try {
+        //         opcao = scanner.nextInt();
+        //         switch (opcao) {
+        //             case 1:
+        //                 scanner.close();
+        //                 System.out.println("Opção 1 selecionada - Cadastrar Usuário");
+        //                 showCadastro();
+        //             case 2:
+        //                 scanner.close();
+        //                 System.out.println("Opção 2 selecionada - Listar Usuário");
+        //                 break;
+        //             case 3:
+        //                 scanner.close();
+        //                 System.out.println("Opção 3 selecionada - Cadastrar Automovel");
+        //                 showCadastroAuto();
+        //                 break;
+        //             case 4:
+        //                 scanner.close();
+        //                 System.out.println("Opção 4 selecionada - Listar Automoveis");
+        //                 break;
+        //             case 5:
+        //                 scanner.close();
+        //                 System.out.println("Opção 5 selecionada - Gerenciar Saldo");
+        //                 showSaldo();
+        //                 break;
+        //             case 6:
+        //                 scanner.close();
+        //                 System.out.println("Opção 6 selecionada - Comprar Automovel");
+        //                 break;
+        //             case 0:
+        //                 System.out.println("Encerrando o programa...");
+        //                 break;
+        //             default:
+        //                 System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+        //         }
+        //     } 
+        //     catch (Exception e) {
+        //         System.out.println("Erro de entrada. Por favor, digite um número válido.");
+        //     }
+        // }
+
+        // scanner.close();
+
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            // Menu principal
+            System.out.println("\n=== Menu Principal ===");
             System.out.println("1. Cadastrar Usuário");
-            System.out.println("2. Listar Usuários");
-            System.out.println("3. Cadastrar Automovel");
-            System.out.println("4. Listar Automoveis");
-            System.out.println("5. Gerenciar Saldo");
-            System.out.println("6. Comprar Automovel");
-            System.out.println("0. Sair");
-            System.out.print("Digite a opção: ");
+            System.out.println("2. Cadastrar Automovel");
+            System.out.println("3. Gerenciar Saldo");
+            System.out.println("4. Comprar Automovel");
+            System.out.println("0. Encerrar Programa");
+            System.out.print("Escolha uma opção: ");
 
             try {
-                opcao = scanner.nextInt();
-                switch (opcao) {
+                choice = scanner.nextInt();
+                switch (choice) {
                     case 1:
-                        System.out.println("Opção 1 selecionada - Cadastrar Usuário");
-                        showCadastro();
+                        // Menu Opção 1
+                        handleOption1(scanner);
                         break;
                     case 2:
-                        System.out.println("Opção 2 selecionada - Listar Usuário");
+                        // Menu Opção 2
+                        handleOption2(scanner);
                         break;
                     case 3:
-                        System.out.println("Opção 3 selecionada - Cadastrar Automovel");
-                        showCadastroAuto();
+                        // Menu Opção 3
+                        handleOption3(scanner);
                         break;
                     case 4:
-                        System.out.println("Opção 4 selecionada - Listar Automoveis");
-                        break;
-                    case 5:
-                        System.out.println("Opção 5 selecionada - Gerenciar Saldo");
-                        showSaldo();
-                        break;
-                    case 6:
-                        System.out.println("Opção 6 selecionada - Comprar Automovel");
+                        // Menu Opção 4
+                        handleOption4(scanner);
                         break;
                     case 0:
                         System.out.println("Encerrando o programa...");
                         break;
                     default:
-                        System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                        System.out.println("Opção inválida! Por favor, tente novamente.");
                 }
             } catch (Exception e) {
-                System.out.println("Erro de entrada. Por favor, digite um número válido.");
+                System.out.println("Entrada inválida! Por favor, insira um número.");
+                scanner.next(); // Limpa o buffer de entrada
+                choice = -1; // Define uma opção inválida para continuar o loop
             }
-        }
+
+        } while (choice != 0);
 
         scanner.close();
     }
 
-    public static void showCadastro() {
-        Scanner scanner = new Scanner(System.in);
-        int opcao = -1;
-
-        while (opcao != 0) {
-            System.out.println("---------- Cadastro de Us ---------");
+    private static void handleOption1(Scanner scanner) {
+        int choice;
+        do {
+            System.out.println("\n=== Cadastrar Usuário ===");
             System.out.println("1. Cadastrar Vendedor");
             System.out.println("2. Cadastrar Cliente");
             System.out.println("0. Voltar");
-            System.out.print("Digite a opção: ");
+            System.out.print("Escolha uma opção: ");
 
             try {
-                opcao = scanner.nextInt();
-                switch (opcao) {
+                choice = scanner.nextInt();
+                switch (choice) {
                     case 1:
-                        System.out.println("Opção 1 selecionada - Cadastrar Vendedor");
+                        System.out.println("Executando ação do Submenu 1...");
                         break;
                     case 2:
-                        System.out.println("Opção 2 selecionada - Cadastrar Cliente");
+                        System.out.println("Executando ação do Submenu 2...");
                         break;
                     case 0:
-                        System.out.println("Voltando...");
+                        System.out.println("Voltando ao menu principal...");
                         break;
                     default:
-                        System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                        System.out.println("Opção inválida! Por favor, tente novamente.");
                 }
             } catch (Exception e) {
-                System.out.println("Erro de entrada. Por favor, digite um número válido.");
+                System.out.println("Entrada inválida! Por favor, insira um número.");
+                scanner.next(); // Limpa o buffer de entrada
+                choice = -1; // Define uma opção inválida para continuar o loop
             }
-        }
+        } while (choice != 0);
     }
 
-    public static void showCadastroAuto() {
-        Scanner scanner = new Scanner(System.in);
-        int opcao = -1;
-
-        while (opcao != 0) {
-            System.out.println("---------- Cdastro de Automóveis ---------");
-            System.out.println("1. Cadastrar Carro");
-            System.out.println("2. Cadastrar Moto");
-            System.out.println("3. Cadastrar Caminhão");
+    private static void handleOption2(Scanner scanner) {
+        int choice;
+        do {
+            System.out.println("\n=== Cadastrar Automovel ===");
+            System.out.println("1. Nova Moto");
+            System.out.println("2. Novo Carro");
+            System.out.println("3. Novo Caminhão");
             System.out.println("0. Voltar");
-            System.out.print("Digite a opção: ");
+            System.out.print("Escolha uma opção: ");
 
             try {
-                opcao = scanner.nextInt();
-                switch (opcao) {
+                choice = scanner.nextInt();
+                switch (choice) {
                     case 1:
-                        System.out.println("Opção 1 selecionada - Cadastrar Carro");
+                        System.out.println("Executando ação do Submenu 1...");
                         break;
                     case 2:
-                        System.out.println("Opção 2 selecionada - Cadastrar Moto");
-                        break;
-                    case 3:
-                        System.out.println("Opção 3 selecionada - Cadastrar Caminhão");
+                        System.out.println("Executando ação do Submenu 2...");
                         break;
                     case 0:
-                        System.out.println("Voltando...");
+                        System.out.println("Voltando ao menu principal...");
                         break;
                     default:
-                        System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                        System.out.println("Opção inválida! Por favor, tente novamente.");
                 }
             } catch (Exception e) {
-                System.out.println("Erro de entrada. Por favor, digite um número válido.");
-                scanner.nextLine(); // tira os valores do scanner
+                System.out.println("Entrada inválida! Por favor, insira um número.");
+                scanner.next();
+                choice = -1;
             }
-        }
-
-        scanner.close();
+        } while (choice != 0);
     }
 
-    public static void showSaldo() {
-        Scanner scanner = new Scanner(System.in);
-        int opcao = -1;
-
-        while (opcao != 0) {
-            System.out.println("---------- Gerenciar Saldo ---------");
+    private static void handleOption3(Scanner scanner) {
+        int choice;
+        do {
+            System.out.println("\n=== Gerenciar Saldo ===");
             System.out.println("1. Adicionar Saldo");
-            System.out.println("2. Remover Saldo");
+            System.out.println("2. Ver saldo");
             System.out.println("0. Voltar");
-            System.out.print("Digite a opção: ");
+            System.out.print("Escolha uma opção: ");
 
             try {
-                opcao = scanner.nextInt();
-                switch (opcao) {
+                choice = scanner.nextInt();
+                switch (choice) {
                     case 1:
-                        System.out.println("Opção 1 selecionada - Adicionar Saldo");
+                        System.out.println("Executando ação do Submenu 1...");
                         break;
                     case 2:
-                        System.out.println("Opção 2 selecionada - Remover Saldo");
+                        System.out.println("Executando ação do Submenu 2...");
                         break;
                     case 0:
-                        System.out.println("Voltando...");
+                        System.out.println("Voltando ao menu principal...");
                         break;
                     default:
-                        System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
+                        System.out.println("Opção inválida! Por favor, tente novamente.");
                 }
             } catch (Exception e) {
-                System.out.println("Erro de entrada. Por favor, digite um número válido.");
-                scanner.nextLine(); // tira os valores do scanner
+                System.out.println("Entrada inválida! Por favor, insira um número.");
+                scanner.next();
+                choice = -1;
             }
-        }
-
-        scanner.close();
+        } while (choice != 0);
     }
+
+    private static void handleOption4(Scanner scanner) {
+        int choice;
+        do {
+            System.out.println("\n=== Comprar Automovel ===");
+            System.out.println("1. Submenu 1");
+            System.out.println("2. Submenu 2");
+            System.out.println("0. Voltar");
+            System.out.print("Escolha uma opção: ");
+
+            try {
+                choice = scanner.nextInt();
+                switch (choice) {
+                    case 1:
+                        System.out.println("Executando ação do Submenu 1...");
+                        break;
+                    case 2:
+                        System.out.println("Executando ação do Submenu 2...");
+                        break;
+                    case 0:
+                        System.out.println("Voltando ao menu principal...");
+                        break;
+                    default:
+                        System.out.println("Opção inválida! Por favor, tente novamente.");
+                }
+            } catch (Exception e) {
+                System.out.println("Entrada inválida! Por favor, insira um número.");
+                scanner.next();
+                choice = -1;
+            }
+        } while (choice != 0);
+    }
+
 }
