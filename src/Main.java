@@ -1,7 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import static java.lang.Integer.*;
 
 public class Main {
+    List<Moto> motos = new ArrayList<>();
+    List<Carro> carros = new ArrayList<>();
+    List<Caminhao> caminhoes = new ArrayList<>();
+
     public static void main(String[] args) throws Exception {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         System.out.println("Adicionando moto com placa invalida -> ABC");
@@ -214,8 +219,8 @@ public class Main {
                 }
             } catch (Exception e) {
                 System.out.println("Entrada inválida! Por favor, insira um número.");
-                scanner.next(); // Limpa o buffer de entrada
-                choice = -1; // Define uma opção inválida para continuar o loop
+                scanner.next();
+                choice = -1;
             }
         } while (choice != 0);
     }
@@ -234,7 +239,11 @@ public class Main {
                 choice = scanner.nextInt();
                 switch (choice) {
                     case 1:
-                        System.out.println("Executando ação do Submenu 1...");
+                        System.out.println();
+                        System.out.println("Insira as informações da moto");
+                        System.out.println();
+
+                        Moto CBR = new Moto("Honda", "CBR600RR", 2022, 35000.00, 0, "ABC-1234", "Gasolina", "Vermelha", "Manual", 180, 600, "Esportiva");
                         break;
                     case 2:
                         System.out.println("Executando ação do Submenu 2...");
