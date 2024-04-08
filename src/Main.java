@@ -256,8 +256,7 @@ public class Main {
                         scanner.nextLine(); 
 
                         System.out.print("modelo: ");
-                        modelo = scanner.nextLine();
-                        scanner.nextLine(); 
+                        modelo = scanner.nextLine(); 
                         
                         System.out.print("ano: ");
                         ano = scanner.nextInt();
