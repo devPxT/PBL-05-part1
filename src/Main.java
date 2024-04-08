@@ -3,9 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    List<Moto> motos = new ArrayList<>();
-    List<Carro> carros = new ArrayList<>();
-    List<Caminhao> caminhoes = new ArrayList<>();
+    public static List<Moto> motos = new ArrayList<>();
+    public static List<Carro> carros = new ArrayList<>();
+    public static List<Caminhao> caminhoes = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
@@ -68,82 +68,10 @@ public class Main {
 
         clienteValido.imprimirEndereco();
 
-        // System.out.println("---------- Bem Vindo ---------");
-        // System.out.println("1. Cadastrar Usuário");
-        // System.out.println("2. Listar Usuário");
-        // System.out.println("3. Cadastrar Automovel");
-        // System.out.println("4. Listar Automoveis");
-        // System.out.println("5. Adicionar Saldo");
-        // System.out.println("6. Comprar Automovel");
-        // System.out.println("0. Sair");
-        // Scanner scanner = new Scanner(System.in);
-        // System.out.print("Digite a opção: " );
-        // int opcao = scanner.nextInt();
-        // scanner.close();
-
-        // System.out.println(opcao);
-
         showMenu();
     }
 
     public static void showMenu() {
-        // Scanner scanner = new Scanner(System.in);
-        // int opcao = -1;
-
-        // while (opcao != 0) {
-        //     System.out.println("---------- Bem Vindo ---------");
-        //     System.out.println("1. Cadastrar Usuário");
-        //     System.out.println("2. Listar Usuários");
-        //     System.out.println("3. Cadastrar Automovel");
-        //     System.out.println("4. Listar Automoveis");
-        //     System.out.println("5. Gerenciar Saldo");
-        //     System.out.println("6. Comprar Automovel");
-        //     System.out.println("0. Sair");
-        //     System.out.print("Digite a opção: ");
-
-        //     try {
-        //         opcao = scanner.nextInt();
-        //         switch (opcao) {
-        //             case 1:
-        //                 scanner.close();
-        //                 System.out.println("Opção 1 selecionada - Cadastrar Usuário");
-        //                 showCadastro();
-        //             case 2:
-        //                 scanner.close();
-        //                 System.out.println("Opção 2 selecionada - Listar Usuário");
-        //                 break;
-        //             case 3:
-        //                 scanner.close();
-        //                 System.out.println("Opção 3 selecionada - Cadastrar Automovel");
-        //                 showCadastroAuto();
-        //                 break;
-        //             case 4:
-        //                 scanner.close();
-        //                 System.out.println("Opção 4 selecionada - Listar Automoveis");
-        //                 break;
-        //             case 5:
-        //                 scanner.close();
-        //                 System.out.println("Opção 5 selecionada - Gerenciar Saldo");
-        //                 showSaldo();
-        //                 break;
-        //             case 6:
-        //                 scanner.close();
-        //                 System.out.println("Opção 6 selecionada - Comprar Automovel");
-        //                 break;
-        //             case 0:
-        //                 System.out.println("Encerrando o programa...");
-        //                 break;
-        //             default:
-        //                 System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
-        //         }
-        //     } 
-        //     catch (Exception e) {
-        //         System.out.println("Erro de entrada. Por favor, digite um número válido.");
-        //     }
-        // }
-
-        // scanner.close();
-
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -155,6 +83,7 @@ public class Main {
             System.out.println("3. Gerenciar Saldo");
             System.out.println("4. Comprar Automovel");
             System.out.println("0. Encerrar Programa");
+            System.out.println();
             System.out.print("Escolha uma opção: ");
 
             try {
@@ -233,21 +162,171 @@ public class Main {
             System.out.println("2. Novo Carro");
             System.out.println("3. Novo Caminhão");
             System.out.println("0. Voltar");
+            System.out.println();
             System.out.print("Escolha uma opção: ");
 
             try {
                 choice = scanner.nextInt();
+                String marca;
+                String modelo;
+                int ano;
+                double preco;
+                int quilometragem;
+                String placa;
+                String combustivel;
+                String cor;
+                String cambio;
+                int peso;
                 switch (choice) {
+                    
                     case 1:
+                        int cilindradas;
+                        String tipo;
+
                         System.out.println();
                         System.out.println("Insira as informações da moto");
                         System.out.println();
 
-                        Moto CBR = new Moto("Honda", "CBR600RR", 2022, 35000.00, 0, "ABC-1234", "Gasolina", "Vermelha", "Manual", 180, 600, "Esportiva");
+                        System.out.print("marca: ");
+                        marca = scanner.next();
+
+                        System.out.print("modelo: ");
+                        modelo = scanner.next();
+
+                        System.out.print("ano: ");
+                        ano = scanner.nextInt();
+
+                        System.out.print("preco: ");
+                        preco = scanner.nextDouble();
+
+                        System.out.print("quilometragem: ");
+                        quilometragem = scanner.nextInt();
+
+                        System.out.print("placa: ");
+                        placa = scanner.next();
+
+                        System.out.print("combustivel: ");
+                        combustivel = scanner.next();
+
+                        System.out.print("cor: ");
+                        cor = scanner.next();
+
+                        System.out.print("cambio: ");
+                        cambio = scanner.next();
+
+                        System.out.print("peso: ");
+                        peso = scanner.nextInt();
+
+                        System.out.print("cilindradas: ");
+                        cilindradas = scanner.nextInt();
+
+                        System.out.print("tipo: ");
+                        tipo = scanner.next();
+
+                        Moto moto = new Moto(marca, modelo, ano, preco, quilometragem, placa, combustivel, cor, cambio, peso, cilindradas, tipo);
+                        motos.add(moto);
+
+                        System.out.println();
+                        System.out.println("Moto cadastrada com sucesso!");
+                        choice = 0;
                         break;
                     case 2:
-                        System.out.println("Executando ação do Submenu 2...");
+                        int portas;
+
+                        System.out.println();
+                        System.out.println("Insira as informações da moto");
+                        System.out.println();
+
+                        System.out.print("marca: ");
+                        marca = scanner.nextLine();
+
+                        System.out.print("modelo: ");
+                        modelo = scanner.nextLine();
+
+                        System.out.print("ano: ");
+                        ano = scanner.nextInt();
+
+                        System.out.print("preco: ");
+                        preco = scanner.nextDouble();
+
+                        System.out.print("quilometragem: ");
+                        quilometragem = scanner.nextInt();
+
+                        System.out.print("placa: ");
+                        placa = scanner.nextLine();
+
+                        System.out.print("combustivel: ");
+                        combustivel = scanner.nextLine();
+
+                        System.out.print("cor: ");
+                        cor = scanner.nextLine();
+
+                        System.out.print("cambio: ");
+                        cambio = scanner.nextLine();
+
+                        System.out.print("peso: ");
+                        peso = scanner.nextInt();
+
+                        System.out.print("portas: ");
+                        portas = scanner.nextInt();
+
+                        Carro carro = new Carro(marca, modelo, ano, preco, quilometragem, placa, combustivel, cor, cambio, peso, portas);
+                        carros.add(carro);
+
+                        System.out.println();
+                        System.out.println("Carro cadastrado com sucesso!");
+                        choice = 0;
                         break;
+                    case 3:
+                        int eixos;
+                        int cargaMaxima;
+
+                        System.out.println();
+                        System.out.println("Insira as informações da moto");
+                        System.out.println();
+
+                        System.out.print("marca: ");
+                        marca = scanner.nextLine();
+
+                        System.out.print("modelo: ");
+                        modelo = scanner.nextLine();
+
+                        System.out.print("ano: ");
+                        ano = scanner.nextInt();
+
+                        System.out.print("preco: ");
+                        preco = scanner.nextDouble();
+
+                        System.out.print("quilometragem: ");
+                        quilometragem = scanner.nextInt();
+
+                        System.out.print("placa: ");
+                        placa = scanner.nextLine();
+
+                        System.out.print("combustivel: ");
+                        combustivel = scanner.nextLine();
+
+                        System.out.print("cor: ");
+                        cor = scanner.nextLine();
+
+                        System.out.print("cambio: ");
+                        cambio = scanner.nextLine();
+
+                        System.out.print("peso: ");
+                        peso = scanner.nextInt();
+
+                        System.out.print("eixos: ");
+                        eixos = scanner.nextInt();
+
+                        System.out.print("carga maxima: ");
+                        cargaMaxima = scanner.nextInt();
+
+                        Caminhao caminhao = new Caminhao(marca, modelo, ano, preco, quilometragem, placa, combustivel, cor, cambio, peso, eixos, cargaMaxima);
+                        caminhoes.add(caminhao);
+
+                        System.out.println();
+                        System.out.println("Caminhão cadastrado com sucesso!");
+                        choice = 0;
                     case 0:
                         System.out.println("Voltando ao menu principal...");
                         break;
@@ -325,5 +404,4 @@ public class Main {
             }
         } while (choice != 0);
     }
-
 }
