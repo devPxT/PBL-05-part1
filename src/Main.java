@@ -252,40 +252,45 @@ public class Main {
                         System.out.println();
 
                         System.out.print("marca: ");
-                        marca = scanner.next();
+                        marca = scanner.nextLine();
 
                         System.out.print("modelo: ");
-                        modelo = scanner.next();
+                        modelo = scanner.nextLine();
 
                         System.out.print("ano: ");
                         ano = scanner.nextInt();
+                        scanner.nextLine(); 
 
                         System.out.print("preco: ");
                         preco = scanner.nextDouble();
+                        scanner.nextLine(); 
 
                         System.out.print("quilometragem: ");
                         quilometragem = scanner.nextInt();
+                        scanner.nextLine(); 
 
                         System.out.print("placa: ");
-                        placa = scanner.next();
+                        placa = scanner.nextLine();
 
                         System.out.print("combustivel: ");
-                        combustivel = scanner.next();
+                        combustivel = scanner.nextLine();
 
                         System.out.print("cor: ");
-                        cor = scanner.next();
+                        cor = scanner.nextLine();
 
                         System.out.print("cambio: ");
-                        cambio = scanner.next();
+                        cambio = scanner.nextLine();
 
                         System.out.print("peso: ");
                         peso = scanner.nextInt();
+                        scanner.nextLine(); 
 
                         System.out.print("cilindradas: ");
                         cilindradas = scanner.nextInt();
+                        scanner.nextLine(); 
 
                         System.out.print("tipo: ");
-                        tipo = scanner.next();
+                        tipo = scanner.nextLine();
 
                         Moto moto = new Moto(marca, modelo, ano, preco, quilometragem, placa, combustivel, cor, cambio, peso, cilindradas, tipo);
                         //Moto moto = new Moto("Honda", "CBR600RR", 2022, 35000.00, 0, "ABC-1234", "Gasolina", "Vermelha", "Manual", 180, 600, "Esportiva");
@@ -301,43 +306,50 @@ public class Main {
                         System.out.println();
                         System.out.println("Insira as informações do Carro");
                         System.out.println();
-
+                        
                         System.out.print("marca: ");
-                        marca = scanner.nextLine();
-
+                        marca = scanner.next();
+                        scanner.nextLine(); 
+                        
                         System.out.print("modelo: ");
                         modelo = scanner.nextLine();
-
+                        
                         System.out.print("ano: ");
                         ano = scanner.nextInt();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("preco: ");
                         preco = scanner.nextDouble();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("quilometragem: ");
                         quilometragem = scanner.nextInt();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("placa: ");
-                        placa = scanner.nextLine();
-
+                        placa = scanner.next();
+                        scanner.nextLine(); 
+                        
                         System.out.print("combustivel: ");
                         combustivel = scanner.nextLine();
-
+                        
                         System.out.print("cor: ");
                         cor = scanner.nextLine();
-
+                        
                         System.out.print("cambio: ");
                         cambio = scanner.nextLine();
-
+                        
                         System.out.print("peso: ");
                         peso = scanner.nextInt();
-
+                        scanner.nextLine();
+                        
                         System.out.print("portas: ");
                         portas = scanner.nextInt();
-
+                        scanner.nextLine(); 
+                        
                         Carro carro = new Carro(marca, modelo, ano, preco, quilometragem, placa, combustivel, cor, cambio, peso, portas);
                         carros.add(carro);
-
+                        
                         System.out.println();
                         System.out.println("Carro cadastrado com sucesso!");
                         choice = 0;
@@ -345,53 +357,62 @@ public class Main {
                     case 3:
                         int eixos;
                         int cargaMaxima;
-
+                        
                         System.out.println();
                         System.out.println("Insira as informações do Caminhão");
                         System.out.println();
-
+                        
                         System.out.print("marca: ");
-                        marca = scanner.nextLine();
-
+                        marca = scanner.next();
+                        scanner.nextLine(); 
+                        
                         System.out.print("modelo: ");
                         modelo = scanner.nextLine();
-
+                        
                         System.out.print("ano: ");
                         ano = scanner.nextInt();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("preco: ");
                         preco = scanner.nextDouble();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("quilometragem: ");
                         quilometragem = scanner.nextInt();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("placa: ");
-                        placa = scanner.nextLine();
-
+                        placa = scanner.next();
+                        scanner.nextLine(); 
+                        
                         System.out.print("combustivel: ");
                         combustivel = scanner.nextLine();
-
+                        
                         System.out.print("cor: ");
                         cor = scanner.nextLine();
-
+                        
                         System.out.print("cambio: ");
                         cambio = scanner.nextLine();
-
+                        
                         System.out.print("peso: ");
                         peso = scanner.nextInt();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("eixos: ");
                         eixos = scanner.nextInt();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("carga maxima: ");
                         cargaMaxima = scanner.nextInt();
-
+                        scanner.nextLine(); 
+                        
                         Caminhao caminhao = new Caminhao(marca, modelo, ano, preco, quilometragem, placa, combustivel, cor, cambio, peso, eixos, cargaMaxima);
                         caminhoes.add(caminhao);
-
+                        
                         System.out.println();
                         System.out.println("Caminhão cadastrado com sucesso!");
                         choice = 0;
+                        break;
                     case 0:
                         System.out.println("Voltando ao menu principal...");
                         break;
