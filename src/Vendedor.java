@@ -22,8 +22,8 @@ public class Vendedor extends Pessoa {
     }
 
     public void imprimirSaldo() {
+        System.out.println();
         System.out.println("Dinheiro novo faturado do " + getNome() + " -> " + getSaldo());
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
     }
 
     public void imprimirInfo() {

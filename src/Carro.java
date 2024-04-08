@@ -12,8 +12,8 @@ public class Carro extends Automovel {
         return portas;
     }
 
-    public void imprimirInfo() {
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+    public void imprimirInfo(int index) {
+        System.out.println("=== Carro "+ index + " ===");
         System.out.println(getMarca() + " " + getModelo() + "\n" + //
                         "ano: " + getAno() + "\n" + //
                         "preço: " + getPreco() + " R$ ->" + isNew(getNovo()) + "\n" + //
@@ -23,19 +23,19 @@ public class Carro extends Automovel {
                         "cor: " + getCor() + "\n" + //
                         "peso: " + getPeso() + " Kg" + "\n" + //
                         "número de portas: " + this.getPortas());
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        System.out.println("=== Carro "+ index + " ===");
         System.out.println();
     }
 
-    public void comprarCarro(Vendedor vendedor, Cliente cliente) {
+    public boolean comprarCarro(Vendedor vendedor, Cliente cliente) {
         if (cliente.getSaldo() < getPreco()) {
-            System.out.println("Saldo insuficiente para comprar o carro: " + getMarca() + " -> " + getModelo());
-            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-            return;
+            System.out.println();
+            System.out.println("Cliente não tem saldo suficiente para comprar o carro: " + getMarca() + " -> " + getModelo());
+            return false;
         }
         System.out.println(getMarca() + " -> " + getModelo() + " comprado com sucesso!");
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         cliente.diminuirSaldo(getPreco());
         vendedor.adicionarDinheiroFaturado(getPreco());
+        return true;
     }
 }

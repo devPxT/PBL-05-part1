@@ -24,8 +24,8 @@ public class Moto extends Automovel {
         this.tipo = tipo;
     }
 
-    public void imprimirInfo() {
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+    public void imprimirInfo(int index) {
+        System.out.println("=== Moto "+ index + " ===");
         System.out.println(getMarca() + " " + getModelo() + "\n" + //
                         "ano: " + getAno() + "\n" + //
                         "preço: " + getPreco() + " R$ ->" + isNew(getNovo()) + "\n" + //
@@ -36,19 +36,21 @@ public class Moto extends Automovel {
                         "peso: " + getPeso() + " Kg" + "\n" + //
                         "cilindradas: " + this.getCilindradas() + "\n" + //
                         "tipo: " + this.getTipo());
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+        System.out.println("=== Moto "+ index + " ===");
         System.out.println();
     }
 
-    public void comprarMoto(Vendedor vendedor, Cliente cliente) {
+    public boolean comprarMoto(Vendedor vendedor, Cliente cliente) {
         if (cliente.getSaldo() < getPreco()) {
-            System.out.println("Saldo insuficiente para comprar a moto: " + getMarca() + " -> " + getModelo());
-            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-            return;
+            System.out.println();
+            System.out.println("Cliente não tem saldo suficiente para comprar a moto: " + getMarca() + " -> " + getModelo());
+            return false;
         }
+        System.out.println();
         System.out.println(getMarca() + " -> " + getModelo() + " comprado com sucesso!");
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         cliente.diminuirSaldo(getPreco());
         vendedor.adicionarDinheiroFaturado(getPreco());
+        cliente.imprimirEndereco();
+        return true;
     }
 }

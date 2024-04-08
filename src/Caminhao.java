@@ -24,8 +24,8 @@ public class Caminhao extends Automovel {
         this.eixos = eixos;
     }
 
-    public void imprimirInfo() {
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+    public void imprimirInfo(int index) {
+        System.out.println("=== Caminhão "+ index + " ===");
         System.out.println(getMarca() + " " + getModelo() + "\n" + //
                         "ano: " + getAno() + "\n" + //
                         "preço: " + getPreco() + " R$ ->" + isNew(getNovo()) + "\n" + //
@@ -36,19 +36,20 @@ public class Caminhao extends Automovel {
                         "peso: " + getPeso() + " Kg" + "\n" + //
                         "número de eixos: " + this.getEixos() + "\n" + //
                         "carga máxima: " + this.getCargaMaxima() + " toneladas");
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                        System.out.println("=== Caminhão "+ index + " ===");
         System.out.println();
     }
 
-    public void comprarCaminhao(Vendedor vendedor, Cliente cliente) {
+    public boolean comprarCaminhao(Vendedor vendedor, Cliente cliente) {
         if (cliente.getSaldo() < getPreco()) {
-            System.out.println("Saldo insuficiente para comprar o caminhão da: " + getMarca() + " -> " + getModelo());
-            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-            return;
+            System.out.println();
+            System.out.println("Cliente não tem saldo suficiente para comprar o caminhão da: " + getMarca() + " -> " + getModelo());
+            return false;
         }
         System.out.println(getMarca() + " -> " + getModelo() + " comprado com sucesso!");
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         cliente.diminuirSaldo(getPreco());
         vendedor.adicionarDinheiroFaturado(getPreco());
+        return true;
     }
 }

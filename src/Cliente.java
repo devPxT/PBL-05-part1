@@ -34,8 +34,8 @@ public class Cliente extends Pessoa {
     }
 
     public void imprimirSaldo() {
+        System.out.println();
         System.out.println("Saldo novo do " + getNome() + " -> " + getSaldo());
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
     }
 
     public void imprimirInfo() {
@@ -50,8 +50,6 @@ public class Cliente extends Pessoa {
 
     public void imprimirEndereco() {
         System.out.println();
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         System.out.println("Entregar automovel no cep: " + this.getCep() + " numero da casa: " + this.getNumeroCasa() + " dono da casa -> " + getNome());
-        System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
     }
 }
