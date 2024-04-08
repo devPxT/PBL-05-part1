@@ -253,10 +253,12 @@ public class Main {
 
                         System.out.print("marca: ");
                         marca = scanner.nextLine();
+                        scanner.nextLine(); 
 
                         System.out.print("modelo: ");
                         modelo = scanner.nextLine();
-
+                        scanner.nextLine(); 
+                        
                         System.out.print("ano: ");
                         ano = scanner.nextInt();
                         scanner.nextLine(); 
